@@ -1,0 +1,43 @@
+@url = http://localhost:3000/admin/product
+#FREI
+@frei = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzc0MjdjZjViZGFiOGI5YTc3NTk5NiIsImtleSI6IkhPTVpBSCIsImlhdCI6MTY0Nzc5NjI4OCwiZXhwIjoxNjQ3Nzk2Mzc0fQ.bZ3_oTUfTkY0w3rf6LFQ8HvhMmMSmCAV27xLT7SmXCE
+@haas = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzc4YjJhN2QwYjAwMzUxYTUyNWQyNCIsImtleSI6IjBUVlNFUSIsImlhdCI6MTY0NzgwNzM4OCwiZXhwIjoxNjQ3ODA3NDc0fQ.mCbnd4puE5JuyoEMTfE7mj-hCTcJ1uBedYd6bnoiszs
+@id = 6238d5bd701932a8303e6ab0
+
+### Listado de Productos
+GET {{url}}
+Authorization: {{haas}}
+
+### Producto
+GET {{url}}/{{id}}
+Authorization: {{haas}}
+
+
+### Crear Producto
+POST {{url}}
+Authorization: {{haas}}
+Content-Type: application/json
+
+{
+    "code":"EI002",
+    "description":"Cobre 2da",
+    "categoryId":"6238d0115dcabe2b5548c55c",
+    "price": 750.50,
+    "active":true
+}
+
+
+### Borrar Categoria
+DELETE  {{url}}/{{id}}
+Authorization: {{frei}}
+
+### Modificar Categoria
+PATCH  {{url}}/{{id}}
+Authorization: {{haas}}
+Content-Type: application/json
+
+{
+    "username":"ruta210Glew",
+    "rol":"user",
+    "active":false
+}

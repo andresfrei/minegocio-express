@@ -1,0 +1,40 @@
+@url = http://localhost:3000/admin/category
+#FREI
+@frei = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzc0MjdjZjViZGFiOGI5YTc3NTk5NiIsImtleSI6IkhPTVpBSCIsImlhdCI6MTY0Nzc5NjI4OCwiZXhwIjoxNjQ3Nzk2Mzc0fQ.bZ3_oTUfTkY0w3rf6LFQ8HvhMmMSmCAV27xLT7SmXCE
+@haas = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzc4YjJhN2QwYjAwMzUxYTUyNWQyNCIsImtleSI6IjBUVlNFUSIsImlhdCI6MTY0NzgwNzM4OCwiZXhwIjoxNjQ3ODA3NDc0fQ.mCbnd4puE5JuyoEMTfE7mj-hCTcJ1uBedYd6bnoiszs
+@id = 623871653c65ed861b197101
+
+### Listado de Cateogiras
+GET {{url}}
+Authorization: {{haas}}
+
+### Deposito
+GET {{url}}/{{id}}
+Authorization: {{haas}}
+
+
+### Crear Categoria
+POST {{url}}
+Authorization: {{haas}}
+Content-Type: application/json
+
+{
+    "name":"Bronce",
+    "active":true
+}
+
+
+### Borrar Categoria
+DELETE  {{url}}/{{id}}
+Authorization: {{frei}}
+
+### Modificar Categoria
+PATCH  {{url}}/{{id}}
+Authorization: {{haas}}
+Content-Type: application/json
+
+{
+    "username":"ruta210Glew",
+    "rol":"user",
+    "active":false
+}

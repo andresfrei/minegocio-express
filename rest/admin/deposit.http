@@ -1,0 +1,41 @@
+@url = http://localhost:3000/admin/deposit
+#FREI
+@frei = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzc0MjdjZjViZGFiOGI5YTc3NTk5NiIsImtleSI6IkhPTVpBSCIsImlhdCI6MTY0Nzc5NjI4OCwiZXhwIjoxNjQ3Nzk2Mzc0fQ.bZ3_oTUfTkY0w3rf6LFQ8HvhMmMSmCAV27xLT7SmXCE
+@haas = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzc4YjJhN2QwYjAwMzUxYTUyNWQyNCIsImtleSI6IjBUVlNFUSIsImlhdCI6MTY0NzgwNzM4OCwiZXhwIjoxNjQ3ODA3NDc0fQ.mCbnd4puE5JuyoEMTfE7mj-hCTcJ1uBedYd6bnoiszs
+@id = 6238c4e79e520a8cd59d6edf
+
+### Listado de depositos
+GET {{url}}
+Authorization: {{haas}}
+
+### Deposito
+GET {{url}}/{{id}}
+Authorization: {{haas}}
+
+
+### Crear Depostio
+POST {{url}}
+Authorization: {{haas}}
+Content-Type: application/json
+
+{
+    "name":"San Vicente",
+    "address":"Alguna Calle 1234 - Santa Ana",
+    "active":true
+}
+
+
+### Borrar deposito
+DELETE  {{url}}/{{id}}
+Authorization: {{frei}}
+
+### Modificar deposito
+PATCH  {{url}}/{{id}}
+Authorization: {{haas}}
+Content-Type: application/json
+
+{
+    "name":"ECO INDUSTRIA",
+    "address":"Ruta 210 km 35,5 - Glew",
+    "active":false
+}

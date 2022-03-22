@@ -1,0 +1,26 @@
+@url = http://localhost:3000/admin/auth
+
+### Login
+POST {{url}}/login
+Content-Type: application/json
+
+{
+    "email":"jhaas@gmail.com",
+    "password":"123456"
+}
+
+### Registro
+POST {{url}}/register
+Content-Type: application/json
+
+{
+    "firstname":"Jonathan",
+    "lastname":"Hass",
+    "address":"Parque de las Naciones",
+    "phone":"1152468578",
+    "city":"Guernica",
+    "state":"Buenos Aires",
+    "country":"AR",
+    "password":"123456",
+    "email":"jhaas@gmail.com"
+}

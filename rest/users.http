@@ -1,0 +1,27 @@
+@url = http://localhost:3000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzc0MjdjZjViZGFiOGI5YTc3NTk5NiIsImtleSI6IkhPTVpBSCIsImlhdCI6MTY0Nzc5NjI4OCwiZXhwIjoxNjQ3Nzk2Mzc0fQ.bZ3_oTUfTkY0w3rf6LFQ8HvhMmMSmCAV27xLT7SmXCE
+
+
+### Login
+POST {{url}}/user/login
+Content-Type: application/json
+
+{
+    "username":"afrei",
+    "password":"123456",
+    "key":"HOMZAH"
+}
+
+### Listao de Usuarios
+GET {{url}}/user
+Authorization: {{token}}
+
+### Crear Usuario
+POST {{url}}/user
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "username":"usuario2",
+    "password":"123456"
+}
