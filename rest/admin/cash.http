@@ -1,0 +1,42 @@
+@url = http://localhost:3000/admin/cash
+
+#@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlZWVjM2EzNjIzYjUxOTkwZmE5NCIsImtleSI6IksyMUo1UzU5IiwiaWF0IjoxNjQ4ODE2MDk1LCJleHAiOjE2NDg4MTYxODF9.qm-EcZ1V40-7OhWczJi2UMg1syuMHsEr5JxYVwOgum4
+# HAAS
+
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGFkNDNiMzhiMGIyYTI1MDEwZjM5ZCIsImtleSI6IjNVQ1JJRE4yIiwiaWF0IjoxNjQ5MDcyNDQyLCJleHAiOjE2NDkwNzI1Mjh9.7jxbarlFR6Ehr2-jSP0iBamjGdbMdOk0vlX9wy9GDFg
+#FREI
+
+@id = 6239da7d0558835b42814f53
+
+### Listar todos
+GET {{url}}
+auth: {{token}}
+
+### Buscar por ID
+GET {{url}}/{{id}}
+auth: {{token}}
+
+
+### Crear
+POST {{url}}
+auth: {{token}}
+Content-Type: application/json
+
+{
+    "name":"PRINCIPAL",
+    "active":true
+}
+
+### Borrar
+DELETE  {{url}}/{{id}}
+auth: {{token}}
+
+### Actualizar
+PATCH  {{url}}/{{id}}
+auth: {{token}}
+Content-Type: application/json
+
+{
+    "name":"CAJA-CHICA",
+    "active":false
+}

@@ -4,18 +4,18 @@ const Account = require("../models/account");
 const secret = process.env.JWT_SECRET;
 
 async function verifyToken(req, res, next) {
-  const token = req.headers.authorization;
+  const token = req.headers.auth;
   if (!token) {
-    return res.status(511).json({ auth: false });
+    return res.status(401).json({ auth: false });
   }
 
   const decoded = jwt.decode(token, secret);
   if (!decoded) {
-    return res.status(511).json({ auth: false });
+    return res.status(401).json({ auth: false });
   }
   const account = await Account.findById(decoded.id);
   if (!account) {
-    return res.status(511).json({ auth: false });
+    return res.status(401).json({ auth: false });
   }
   req.session.accountId = decoded.id;
   req.session.account = account;

@@ -1,0 +1,37 @@
+@url = http://localhost:3000/admin/client
+#FREI
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlZWVjM2EzNjIzYjUxOTkwZmE5NCIsImtleSI6IksyMUo1UzU5IiwiaWF0IjoxNjQ4ODE2MDk1LCJleHAiOjE2NDg4MTYxODF9.qm-EcZ1V40-7OhWczJi2UMg1syuMHsEr5JxYVwOgum4
+@id = 6239da7d0558835b42814f53
+
+### Listar todos
+GET {{url}}
+auth: {{token}}
+
+### Buscar por ID
+GET {{url}}/{{id}}
+auth: {{token}}
+
+
+### Crear
+POST {{url}}
+auth: {{token}}
+Content-Type: application/json
+
+{
+    "name":"CAJA-CHICA",
+    "active":true
+}
+
+### Borrar
+DELETE  {{url}}/{{id}}
+auth: {{token}}
+
+### Actualizar
+PATCH  {{url}}/{{id}}
+auth: {{token}}
+Content-Type: application/json
+
+{
+    "name":"CAJA-CHICA",
+    "active":false
+}

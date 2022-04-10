@@ -3,8 +3,7 @@ const { validateResult } = require("../utils/handleValidator");
 
 const validateLogin = [
   body("username").exists().notEmpty().isLength({ min: 5, max: 15 }),
-  body("password").exists().notEmpty(),
-  body("key").exists().notEmpty().isLength({ min: 6, max: 6 }),
+  body("key").exists().notEmpty().isLength({ min: 8, max: 8 }),
   (req, res, next) => validateResult(req, res, next),
 ];
 
@@ -15,15 +14,15 @@ const validatePasword = [
 
 const validateFields = [
   body("username").exists().notEmpty().trim(),
-  body("username").isLength({ min: 8, max: 15 }),
+  body("username").isLength({ min: 5, max: 15 }),
   body("username")
     .custom((value) => !/\s/.test(value))
     .withMessage("No spaces are allowed in the name"),
-  body("description").exists().notEmpty().trim(),
+  body("fullname").exists().notEmpty().trim(),
   body("active").exists().notEmpty().isBoolean(),
-  body("cashboxs").isArray(),
+  body("cashes").isArray(),
   body("deposits").isArray(),
-  body("rol").exists().notEmpty(),
+  body("isAdmin").isBoolean(),
   (req, res, next) => validateResult(req, res, next),
 ];
 const validateId = [

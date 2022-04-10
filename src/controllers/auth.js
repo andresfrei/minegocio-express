@@ -1,11 +1,9 @@
-const Account = require("../models/account");
-const jwt = require("jsonwebtoken");
 const { handleHttpError } = require("../utils/handleError");
 const { matchedData } = require("express-validator");
 const { keyGenerator } = require("../utils/handleText");
-
-const secret = process.env.JWT_SECRET;
-const expire = process.env.JWT_EXPIRE;
+const { accountToken } = require("../utils/handleToken");
+const Account = require("../models/account");
+const { createFinalConsumer } = require("../utils/handleClients");
 
 async function register(req, res, next) {
   try {
@@ -13,6 +11,9 @@ async function register(req, res, next) {
     const account = new Account(body);
     account.password = await account.encryptPassword(body.password);
     account.key = await keyGenerator(8);
+    const accountId = account._id.toString();
+    const defaultClientId = await createFinalConsumer(accountId);
+    account.defaultClientId = defaultClientId;
     await account.save();
     res.status(201);
     return res.json({ created: true });
@@ -25,27 +26,19 @@ async function login(req, res) {
   try {
     const { email, password } = matchedData(req);
     const account = await Account.findOne({ email });
-    if (!account) {
-      return res.status(501).json({ auth: false });
+    const active = account == null ? false : account.active;
+    if (!active) {
+      return res.status(401).json({ auth: false });
     }
     if (await account.comparePassword(password)) {
-      return res.status(200).json({ token: createToken(account) });
+      const token = await accountToken(account);
+      return res.status(201).json({ token });
     } else {
-      return res.status(501).json({ auth: false });
+      return res.status(401).json({ auth: false });
     }
   } catch (e) {
     handleHttpError(res, e);
   }
 }
 
-async function logout(req, res) {
-  return res.json({ token: "logout" });
-}
-
-function createToken(account) {
-  return jwt.sign({ id: account._id, key: account.key }, secret, {
-    expiresIn: expire,
-  });
-}
-
-module.exports = { register, login, logout };
+module.exports = { register, login };

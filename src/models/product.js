@@ -4,11 +4,11 @@ const newSchema = new Schema(
   {
     code: { type: String, required: true },
     description: { type: String, required: true },
-    categoryId: { type: Types.ObjectId, required: true },
-    accountId: { type: Types.ObjectId, required: true },
-    price: { type: Number, default: 0 },
-    morePrice: { type: Array },
+    category: { type: String, required: true },
+    pricePurchase: { type: Number, default: 0 },
+    priceSale: { type: Number, default: 0 },
     active: { type: Boolean, default: true },
+    accountId: { type: Types.ObjectId, required: true },
   },
   {
     timestamps: true,
@@ -16,4 +16,4 @@ const newSchema = new Schema(
   }
 );
 
-module.exports = model("products", newSchema);
+module.exports = model("product", newSchema);

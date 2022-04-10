@@ -1,0 +1,11 @@
+@url = http://localhost:3000/api/product
+#Frei
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGFkYWYwZTQ1NGNlMzIzM2MwNzdmYSIsImRlcG9zaXRJZCI6IjYyNGFkYTIwZTQ1NGNlMzIzM2MwNzdlYiIsImlhdCI6MTY0OTM1NjQwNywiZXhwIjoxNjQ5MzU2NDkzfQ.344x6lzV_zFIrHeljvDQsqehzcSfb535wzpzj0lFrmI
+@id = 
+
+### Listado de productos
+GET {{url}}
+auth: {{token}}
+
+
+

@@ -1,11 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const { validateLogin } = require("../../validators/user");
-const { verifyToken } = require("../../middleware/user");
-const { getItem, getItems, login } = require("../../controllers/users");
+const { validateId, validatePasword } = require("../../validators/user");
+const {
+  getItem,
+  getItems,
+  setDeposit,
+  getDeposits,
+  getCashes,
+} = require("../../controllers/users");
 
-router.get("/", verifyToken, getItems);
-router.get("/id", verifyToken, getItem);
-router.post("/login", validateLogin, login);
+router.get("/", getItems);
+router.get("/deposits", getDeposits);
+router.post("/deposit/set/:id", validateId, setDeposit);
+router.get("/cashes", getCashes);
+router.get("/:id", validateId, getItem);
+//router.post("/set/cashbox/:id", validateId, getItem);
 
 module.exports = router;

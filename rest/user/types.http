@@ -1,0 +1,9 @@
+@url = http://localhost:3000/api/type
+#FREI
+@frei = 
+@haas = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDJmYTY1OWU0YjhkZDZiNTYzMGJkZSIsImlhdCI6MTY0ODU1ODQwNywiZXhwIjoxNjQ4NTU4NDkzfQ._nGQSJAeUy39KWR0ZHSvTZ7SFsKx-gUS--7iXXBf3Oc
+@id = 
+
+### Listado de typos
+GET {{url}}
+auth: {{haas}}

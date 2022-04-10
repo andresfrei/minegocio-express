@@ -7,6 +7,10 @@ router.use("/admin", require("./admin"));
 //API Routes
 router.use("/api", require("./api"));
 
+router.get("/", (req, res) => {
+  res.render("index");
+});
+
 router.get("*", (req, res) => {
   res.render("404");
 });

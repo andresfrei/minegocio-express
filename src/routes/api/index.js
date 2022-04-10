@@ -1,12 +1,22 @@
 const epxress = require("express");
+const res = require("express/lib/response");
 const router = epxress.Router();
-//const fs = require("fs");
-const { verifyToken } = require("../../middleware/user");
+const { verifyToken, verifyDeposit } = require("../../middleware/user");
 
+//Auth
 router.use("/auth", require("./auth"));
-//router.use("/deposit", verifyToken, require("./deposit"));
+
+//API
 router.use("/user", verifyToken, require("./user"));
-//router.use("/product", verifyToken, require("./product"));
+router.use("/product", verifyToken, verifyDeposit, require("./product"));
+
+router.use("/buy", verifyToken, verifyDeposit, require("./buy"));
+router.use("/stock", verifyToken, verifyDeposit, require("./stock"));
+router.use("/cash", verifyToken, require("./cash"));
+
+router.use("/client", verifyToken, require("./client"));
+router.use("/resume", verifyToken, verifyDeposit, require("./resume"));
+router.use("/type", verifyToken, require("./type"));
 
 router.get("*", (req, res) => {
   res.status(404);
@@ -14,21 +24,3 @@ router.get("*", (req, res) => {
 });
 
 module.exports = router;
-
-/* const pathRouter = `${__dirname}`;
-
-const removeExtension = (fileName) => {
-  return fileName.split(".").shift();
-};
-
-fs.readdirSync(pathRouter).filter((file) => {
-  const fileWithOutExt = removeExtension(file);
-  const skip = ["index"].includes(fileWithOutExt);
-  if (!skip) {
-    router.use(
-      `/${fileWithOutExt}`,
-      verifyToken,
-      require(`./${fileWithOutExt}`)
-    );
-  }
-}); */

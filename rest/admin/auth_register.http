@@ -1,0 +1,17 @@
+@url = http://localhost:3000/admin/auth
+
+### Registro
+POST {{url}}/register
+Content-Type: application/json
+
+{
+    "firstname":"Andres",
+    "lastname":"Frei",
+    "address":"Parque de las Naciones",
+    "phone":"1152468578",
+    "city":"Guernica",
+    "state":"Buenos Aires",
+    "country":"AR",
+    "password":"123456",
+    "email":"cordoobez@gmail.com"
+}

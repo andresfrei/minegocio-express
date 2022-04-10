@@ -3,9 +3,13 @@ const { Schema, model, Types } = require("mongoose");
 const newSchema = new Schema(
   {
     name: { type: String, required: true },
-    address: { type: String, required: true },
-    accountId: { type: Types.ObjectId, required: true },
+    address: { type: String },
+    phone: { type: String },
+    buy: { type: Boolean, default: false },
+    sale: { type: Boolean, default: true },
+    isCountable: { type: Boolean, default: false },
     active: { type: Boolean, default: true },
+    accountId: { type: Types.ObjectId, required: true },
   },
   {
     timestamps: true,
@@ -13,4 +17,4 @@ const newSchema = new Schema(
   }
 );
 
-module.exports = model("clients", newSchema);
+module.exports = model("Client", newSchema);

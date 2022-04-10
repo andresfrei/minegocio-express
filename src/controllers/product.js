@@ -2,17 +2,19 @@ const Product = require("../models/product");
 const { Types } = require("mongoose");
 const { handleHttpError } = require("../utils/handleError");
 const { matchedData } = require("express-validator");
+const { readFileProductsCsv } = require("../utils/handleFile");
+//const { groupBy: ArrayGroupBy } = require("../utils/handleArray");
 
 const createItem = async (req, res) => {
   try {
-    const body = matchedData(req);
-    const query = { code: body.code, accountId: req.session.accountId };
-    const productExist = await Product.findOne(query);
+    const { code } = matchedData(req);
+    const accountId = req.session.accountId;
+    const productExist = await Product.findOne({ code, accountId });
     if (productExist) {
       res.status(401).send({ error: "Product is exist !!!" });
     } else {
       const product = new Product(body);
-      product.accountId = Types.ObjectId(req.session.accountId);
+      product.accountId = Types.ObjectId(accountId);
       await product.save();
       res.status(201).send({ data: product });
     }
@@ -40,8 +42,10 @@ const getItem = async (req, res) => {
 const getItems = async (req, res) => {
   matchedData(req);
   const query = { accountId: req.session.accountId };
-  const product = await Product.find(query);
-  res.send({ data: product }).status(200);
+  const products = await Product.find(query);
+  //const data = { products };
+  //data.categories = ArrayGroupBy({ data: products, fieldAgrup: "category" });
+  return res.send({ data: products }).status(200);
 };
 
 const updateItem = async (req, res) => {
@@ -83,4 +87,25 @@ const deleteItem = async (req, res) => {
   }
 };
 
-module.exports = { getItems, getItem, createItem, updateItem, deleteItem };
+const uploadFile = (req, res) => {
+  const filename = "productos.csv";
+  const accountId = req.session.accountId;
+  const csv = readFileProductsCsv(filename);
+  const docs = csv.map((doc) => ({ ...doc, accountId }));
+  Product.insertMany(docs)
+    .then((data) => {
+      return res.send({ data }).status(201);
+    })
+    .catch((err) => {
+      return res.send({ err }).status(500);
+    });
+};
+
+module.exports = {
+  getItems,
+  getItem,
+  createItem,
+  updateItem,
+  deleteItem,
+  uploadFile,
+};

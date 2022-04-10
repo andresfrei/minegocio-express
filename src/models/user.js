@@ -4,15 +4,16 @@ const bcrypt = require("bcryptjs");
 const newSchema = new Schema(
   {
     username: { type: String },
-    description: { type: String },
+    fullname: { type: String },
     password: { type: String },
-    deposits: [{ type: Types.ObjectId }],
-    cashboxs: [{ type: Types.ObjectId }],
-    accountId: { type: Types.ObjectId },
-    lastDepositId: { type: Types.ObjectId },
-    rol: { type: String, enum: ["user", "admin"], default: "user" },
-    active: { type: Boolean, default: true },
+    deposits: [{ type: Types.ObjectId, ref: "deposit" }],
+    cashes: [{ type: Types.ObjectId, ref: "cash" }],
+    accountId: { type: Types.ObjectId, ref: "account" },
+    depositId: { type: Types.ObjectId, ref: "deposit" },
+    cashId: { type: Types.ObjectId },
+    isAdmin: { type: Boolean, default: false },
     key: { type: String },
+    active: { type: Boolean, default: true },
   },
   {
     timestamps: true,
@@ -29,4 +30,4 @@ newSchema.methods.comparePassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-module.exports = model("users", newSchema);
+module.exports = model("User", newSchema);

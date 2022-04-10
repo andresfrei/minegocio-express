@@ -1,0 +1,10 @@
+@url = http://localhost:3000/api/cash
+
+#Frei
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGFkYWYwZTQ1NGNlMzIzM2MwNzdmYSIsImRlcG9zaXRJZCI6IjYyNGFkYTIwZTQ1NGNlMzIzM2MwNzdlYiIsImlhdCI6MTY0OTM1NjQwNywiZXhwIjoxNjQ5MzU2NDkzfQ.344x6lzV_zFIrHeljvDQsqehzcSfb535wzpzj0lFrmI
+
+@id = 624ad555c9b5a29797325683
+### Get stock
+GET {{url}}/{{id}}
+auth: {{token}}
+

@@ -1,0 +1,41 @@
+@url = http://localhost:3000/api/buy
+
+#@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlZWVjM2EzNjIzYjUxOTkwZmE5NCIsImtleSI6IksyMUo1UzU5IiwiaWF0IjoxNjQ4ODE2MDk1LCJleHAiOjE2NDg4MTYxODF9.qm-EcZ1V40-7OhWczJi2UMg1syuMHsEr5JxYVwOgum4
+# HAAS
+
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGFkYWYwZTQ1NGNlMzIzM2MwNzdmYSIsImRlcG9zaXRJZCI6IjYyNGFkYTIwZTQ1NGNlMzIzM2MwNzdlYiIsImlhdCI6MTY0OTM1NjQwNywiZXhwIjoxNjQ5MzU2NDkzfQ.344x6lzV_zFIrHeljvDQsqehzcSfb535wzpzj0lFrmI
+#FREI
+
+### List buys
+GET {{url}}
+auth: {{token}}
+
+### Create buy
+POST {{url}}
+auth: {{token}}
+Content-Type: application/json
+
+{
+    "date": "2022-04-07",
+    "clientId": "624ad43b38b0b2a25010f39e",
+    "products": [
+        {
+            "productId":"624f313fec89abee9afe7bf0",
+            "quantity": 2,
+            "price": 1200,
+            "total": 2400
+        },
+        {
+            "productId":"624f313fec89abee9afe7bf2",
+            "quantity": 1,
+            "price": 950,
+            "total": 950
+        }
+    ],
+    "total":3350,
+    "payment":3350,
+    "rounded":0,
+    "isCountable":false,
+    "cashId":"624ad555c9b5a29797325683"
+}
+

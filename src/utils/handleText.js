@@ -6,7 +6,6 @@ function keyGenerator(len) {
     randomPass += wordChars.charAt(
       Math.floor(Math.random() * wordChars.length)
     );
-    // console.log("randomPass en for: ", randomPass);
   }
   return randomPass;
 }

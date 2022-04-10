@@ -1,11 +1,9 @@
 const User = require("../models/user");
-const jwt = require("jsonwebtoken");
+const Deposit = require("../models/deposit");
 const { Types } = require("mongoose");
 const { handleHttpError } = require("../utils/handleError");
 const { matchedData } = require("express-validator");
-
-const secret = process.env.JWT_SECRET;
-const expire = process.env.JWT_EXPIRE;
+const { userToken } = require("../utils/handleToken");
 
 const createItem = async (req, res) => {
   try {
@@ -89,30 +87,65 @@ const deleteItem = async (req, res) => {
   }
 };
 
-async function login(req, res) {
+async function getDeposits(req, res) {
   try {
-    matchedData(req);
-    const body = matchedData(req);
-    body.active = true;
-    const user = await User.findOne(body);
-    if (!user) {
-      return res.status(501).json({ auth: false });
-    }
-    req.session.user = user;
-    req.session.depositId = user.lastDepositId.toString();
-    return res.status(200).json({
-      token: createToken(user),
-      depositId: req.session.depositId,
-    });
+    const { deposits } = req.session.user;
+    const data = deposits.filter((item) => item.active);
+    return res.status(200).send({ data });
   } catch (e) {
     handleHttpError(res, e);
   }
 }
 
-function createToken(user) {
-  return jwt.sign({ id: user._id }, secret, {
-    expiresIn: expire,
-  });
+async function getCashes(req, res) {
+  try {
+    console.log(req.session.user);
+    const { cashes } = req.session.user;
+    const data = cashes.filter((item) => item.active);
+    return res.status(200).send({ data });
+  } catch (e) {
+    handleHttpError(res, e);
+  }
+}
+
+async function login(req, res) {
+  try {
+    const { username, key, password } = matchedData(req);
+    const user = await User.findOne({ username, key });
+    const active = user == null ? false : user.active;
+    if (!active) {
+      return res.status(401).json({ auth: false });
+    }
+    if (await user.comparePassword(password)) {
+      const token = await userToken(user);
+      return res.status(200).json({ token });
+    } else {
+      return res.status(401).json({ auth: false });
+    }
+  } catch (e) {
+    handleHttpError(res, e);
+  }
+}
+
+async function setDeposit(req, res) {
+  try {
+    matchedData(req);
+    const { id } = req.params;
+    const { deposits } = req.session.user;
+    const depositId = deposits.find((deposit) => deposit._id.toString() === id);
+    const active = depositId == null ? false : depositId.active;
+    if (!active) {
+      return res.status(401).json({ auth: false });
+    }
+    const _id = req.session.user._id.toString();
+    const user = await User.findById(_id);
+    user.depositId = depositId;
+    await user.save();
+    const token = await userToken(user);
+    return res.status(201).json({ token });
+  } catch (e) {
+    handleHttpError(res, e);
+  }
 }
 
 module.exports = {
@@ -122,4 +155,7 @@ module.exports = {
   updateItem,
   deleteItem,
   login,
+  setDeposit,
+  getDeposits,
+  getCashes,
 };

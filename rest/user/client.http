@@ -1,0 +1,28 @@
+@url = http://localhost:3000/api/client
+
+#Haas
+#@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlNjNhZDI4ZTU5Mjk2ZWI4MjNjNSIsImlhdCI6MTY0ODgzODg5MSwiZXhwIjoxNjQ4ODM4OTc3fQ.CDjRBEgTaVwo6VpmxnS6oFFdU11BoJVF9AIIUXOOenU
+
+#FREI
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGFkYWYwZTQ1NGNlMzIzM2MwNzdmYSIsImRlcG9zaXRJZCI6IjYyNGFkYTIwZTQ1NGNlMzIzM2MwNzdlYiIsImlhdCI6MTY0OTM1NjQwNywiZXhwIjoxNjQ5MzU2NDkzfQ.344x6lzV_zFIrHeljvDQsqehzcSfb535wzpzj0lFrmI
+
+
+### Client list
+GET {{url}}
+auth: {{token}}
+
+### Create client
+POST {{url}}
+auth: {{token}}
+Content-Type: application/json
+
+{
+ "name":"ECO EMPRESA",
+ "address": "Ruta 210 Km 35  - Glew",
+ "phone":"1152667854",
+ "buy":true,
+ "sale":true,
+ "isCountable":true,
+ "active":true
+}
+

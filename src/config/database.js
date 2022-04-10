@@ -11,4 +11,9 @@ const dbConnect = () => {
   });
 };
 
-module.exports = dbConnect;
+/* const dbDisconnect = () => {
+  mongoose.connection.disconnect();
+  console.log("**** CONEXION DB CERRADA ****");
+}; */
+
+module.exports = { dbConnect };

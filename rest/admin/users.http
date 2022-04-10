@@ -1,43 +1,48 @@
 @url = http://localhost:3000/admin/user
-@frei = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzc0MjdjZjViZGFiOGI5YTc3NTk5NiIsImtleSI6IkhPTVpBSCIsImlhdCI6MTY0Nzc5NjI4OCwiZXhwIjoxNjQ3Nzk2Mzc0fQ.bZ3_oTUfTkY0w3rf6LFQ8HvhMmMSmCAV27xLT7SmXCE
-@haas = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzc4YjJhN2QwYjAwMzUxYTUyNWQyNCIsImtleSI6IjBUVlNFUSIsImlhdCI6MTY0NzgwNzM4OCwiZXhwIjoxNjQ3ODA3NDc0fQ.mCbnd4puE5JuyoEMTfE7mj-hCTcJ1uBedYd6bnoiszs
-@id = 62389a57bac914f4de6cb020
+
+#@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlZWVjM2EzNjIzYjUxOTkwZmE5NCIsImtleSI6IksyMUo1UzU5IiwiaWF0IjoxNjQ4ODE2MDk1LCJleHAiOjE2NDg4MTYxODF9.qm-EcZ1V40-7OhWczJi2UMg1syuMHsEr5JxYVwOgum4
+# HAAS
+
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGFkNDNiMzhiMGIyYTI1MDEwZjM5ZCIsImtleSI6IjNVQ1JJRE4yIiwiaWF0IjoxNjQ5MDcyNDQyLCJleHAiOjE2NDkwNzI1Mjh9.7jxbarlFR6Ehr2-jSP0iBamjGdbMdOk0vlX9wy9GDFg
+#FREI
+
+@id = 6239f1ded2704453cd04d66f
 
 
 ### Listado de usurios
 GET {{url}}
-Authorization: {{haas}}
+auth: {{token}}
 
 
 ### Usuario
 GET {{url}}/{{id}}
-Authorization: {{haas}}
+auth: {{token}}
 
 
 ### Crear Usuario
 POST {{url}}
-Authorization: {{haas}}
+auth: {{token}}
 Content-Type: application/json
 
 {
-    "username":"jpelotas",
-    "description":"Juan Pelotas",
+    "username":"afrei",
+    "fullname":"Andres Frei",
     "password":"123456",
-    "cashboxs":["62378b2a7d0b00351a525d24"],
-    "deposits":["62378b2a7d0b00351a525d24"],
-    "rol":"user",
+    "cashes":["624ad555c9b5a29797325683","624ad55ec9b5a29797325687"],
+    "deposits":["624ada20e454ce3233c077eb"],
+    "isAdmin":false,
     "active":true
 }
 
 
 ### Borrar usuario
 DELETE  {{url}}/{{id}}
-Authorization: {{frei}}
+auth: {{token}}
 
 
 ### Modificar usuario
 PATCH  {{url}}/{{id}}
-Authorization: {{haas}}
+auth: {{token}}
 Content-Type: application/json
 
 {
@@ -47,3 +52,7 @@ Content-Type: application/json
     "deposits":["62378b2a7d0b00351a525d24"],
     "active":false
 }
+
+### Set depostiID
+POST  {{url}}/deposit/{{id}}
+auth: {{token}}

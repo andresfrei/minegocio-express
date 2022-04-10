@@ -1,39 +1,37 @@
 @url = http://localhost:3000/admin/product
-#FREI
-@frei = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzc0MjdjZjViZGFiOGI5YTc3NTk5NiIsImtleSI6IkhPTVpBSCIsImlhdCI6MTY0Nzc5NjI4OCwiZXhwIjoxNjQ3Nzk2Mzc0fQ.bZ3_oTUfTkY0w3rf6LFQ8HvhMmMSmCAV27xLT7SmXCE
-@haas = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzc4YjJhN2QwYjAwMzUxYTUyNWQyNCIsImtleSI6IjBUVlNFUSIsImlhdCI6MTY0NzgwNzM4OCwiZXhwIjoxNjQ3ODA3NDc0fQ.mCbnd4puE5JuyoEMTfE7mj-hCTcJ1uBedYd6bnoiszs
-@id = 6238d5bd701932a8303e6ab0
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGFkNDNiMzhiMGIyYTI1MDEwZjM5ZCIsImtleSI6IjNVQ1JJRE4yIiwiaWF0IjoxNjQ5MzU3MDkxLCJleHAiOjE2NDkzNTcxNzd9.GkFBhBehqwA-y8LlX2yUfkDm5dCvH32CinBsw-IML6o
+@id = 6239149253aad9176e0e291e
 
 ### Listado de Productos
 GET {{url}}
-Authorization: {{haas}}
+auth: {{token}}
 
 ### Producto
 GET {{url}}/{{id}}
-Authorization: {{haas}}
+auth: {{token}}
 
 
 ### Crear Producto
 POST {{url}}
-Authorization: {{haas}}
+auth: {{token}}
 Content-Type: application/json
 
 {
-    "code":"EI002",
-    "description":"Cobre 2da",
-    "categoryId":"6238d0115dcabe2b5548c55c",
+    "code":"EI005",
+    "description":"Aluminio",
+    "categoryId":"623a5ef803792b0268ba258c",
     "price": 750.50,
     "active":true
 }
 
 
-### Borrar Categoria
+### Borrar Producto
 DELETE  {{url}}/{{id}}
-Authorization: {{frei}}
+auth: {{token}}
 
-### Modificar Categoria
+### Modificar Producto
 PATCH  {{url}}/{{id}}
-Authorization: {{haas}}
+auth: {{token}}
 Content-Type: application/json
 
 {
@@ -41,3 +39,7 @@ Content-Type: application/json
     "rol":"user",
     "active":false
 }
+
+### Subir archivo CSV
+POST {{url}}/upload
+auth: {{token}}

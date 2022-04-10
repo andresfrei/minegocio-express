@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 const bcrypt = require("bcryptjs");
 
 const AccountSchema = new Schema(
@@ -14,6 +14,8 @@ const AccountSchema = new Schema(
     password: { type: String },
     status: { type: Number, enum: [0, 1, 2, 3], default: 0 },
     key: { type: String },
+    active: { type: Boolean, default: false },
+    defaultClientId: { type: Types.ObjectId },
   },
   {
     timestamps: true,

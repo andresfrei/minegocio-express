@@ -1,17 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const { validateRegister, validateLogin } = require("../../validators/user");
-const { verifyToken } = require("../../middleware/auth");
-const {
-  getItem,
-  getItems,
-  createItem,
-  login,
-} = require("../../controllers/users");
+const { validateId } = require("../../validators/product");
+const { getItem, getItems } = require("../../controllers/product");
 
-router.get("/", verifyToken, getItems);
-router.post("/", verifyToken, validateRegister, createItem);
-router.get("/id", verifyToken, getItem);
-router.post("/login", validateLogin, login);
+router.get("/", getItems);
+router.get("/:id", validateId, getItem);
+//router.post("/", validateFields, validatePasword, createItem);
+//router.put("/:id", validateId, updateItem);
+//router.delete("/:id", validateId, deleteItem);
 
 module.exports = router;
