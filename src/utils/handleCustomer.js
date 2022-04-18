@@ -1,4 +1,4 @@
-const Client = require("../models/client");
+const Customer = require("../models/customer");
 
 const example = {
   name: "CONSUMIDOR FINAL",
@@ -6,14 +6,14 @@ const example = {
   phone: "-----",
   buy: true,
   sale: false,
-  clientAccount: false,
+  isCountable: false,
   active: true,
 };
 
 const createFinalConsumer = async (accountId) => {
   const cf = { ...example, accountId };
-  const client = await Client.create(cf);
-  return client._id.toString();
+  const customer = await Customer.create(cf);
+  return customer._id.toString();
 };
 
 module.exports = { createFinalConsumer };

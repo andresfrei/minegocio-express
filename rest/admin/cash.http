@@ -1,10 +1,6 @@
-@url = http://localhost:3000/admin/cash
+@url = http://localhost:3000/admin/cashes
 
-#@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlZWVjM2EzNjIzYjUxOTkwZmE5NCIsImtleSI6IksyMUo1UzU5IiwiaWF0IjoxNjQ4ODE2MDk1LCJleHAiOjE2NDg4MTYxODF9.qm-EcZ1V40-7OhWczJi2UMg1syuMHsEr5JxYVwOgum4
-# HAAS
-
-@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGFkNDNiMzhiMGIyYTI1MDEwZjM5ZCIsImtleSI6IjNVQ1JJRE4yIiwiaWF0IjoxNjQ5MDcyNDQyLCJleHAiOjE2NDkwNzI1Mjh9.7jxbarlFR6Ehr2-jSP0iBamjGdbMdOk0vlX9wy9GDFg
-#FREI
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWFmNzM1MmNjNTQ4MzBjNDM3YzM1NCIsImtleSI6IlE1V1BINDVKIiwiaWF0IjoxNjUwMTM0NzY3LCJleHAiOjE2NTAxMzQ4NTN9.Ux-gS7e-vHndrOYH7Khe277w4luzD4QlL2VFzkwE8J8
 
 @id = 6239da7d0558835b42814f53
 
@@ -23,7 +19,7 @@ auth: {{token}}
 Content-Type: application/json
 
 {
-    "name":"PRINCIPAL",
+    "name":"CAJA-CHICA",
     "active":true
 }
 

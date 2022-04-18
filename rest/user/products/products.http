@@ -1,6 +1,6 @@
-@url = http://localhost:3000/api/product
+@url = http://localhost:3000/api/products
 #Frei
-@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGFkYWYwZTQ1NGNlMzIzM2MwNzdmYSIsImRlcG9zaXRJZCI6IjYyNGFkYTIwZTQ1NGNlMzIzM2MwNzdlYiIsImlhdCI6MTY0OTM1NjQwNywiZXhwIjoxNjQ5MzU2NDkzfQ.344x6lzV_zFIrHeljvDQsqehzcSfb535wzpzj0lFrmI
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTM2MDlkYWE4ZjI4YmVmMzhiNWFhMSIsImlhdCI6MTY0OTYzMzc0MiwiZXhwIjoxNjQ5NjMzODI4fQ.ZvvMUjP-e9GcFgHn4Sd-1onHMfYRSAkqRQSEtgGbLuo
 @id = 
 
 ### Listado de productos

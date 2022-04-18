@@ -1,7 +1,6 @@
 @url = http://localhost:3000/api/stock
 #Frei
-@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGFkYWYwZTQ1NGNlMzIzM2MwNzdmYSIsImRlcG9zaXRJZCI6IjYyNGFkYTIwZTQ1NGNlMzIzM2MwNzdlYiIsImlhdCI6MTY0OTM1NjQwNywiZXhwIjoxNjQ5MzU2NDkzfQ.344x6lzV_zFIrHeljvDQsqehzcSfb535wzpzj0lFrmI
-@depositId = 6246064423906053be4fb640
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWFmYjE1NTc0ZTk4YjhmZDY3ZTYxZiIsImlhdCI6MTY1MDEzNDM4MSwiZXhwIjoxNjUwMTM0NDY3fQ.UKSqQp23iqiixjWAT4hn0VPEF3eU7bx9eWEecgYkSBw
 
 ### Get stock
 GET {{url}}

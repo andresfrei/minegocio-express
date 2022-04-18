@@ -14,4 +14,4 @@ const newSchema = new Schema(
   }
 );
 
-module.exports = model("deposit", newSchema);
+module.exports = model("deposits", newSchema);

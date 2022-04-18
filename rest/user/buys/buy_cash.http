@@ -1,5 +1,6 @@
 @url = http://localhost:3000/api/buys
 
+#FREI
 @token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWFmYjE1NTc0ZTk4YjhmZDY3ZTYxZiIsImRlcG9zaXRJZCI6IjYyNWFmYTc5NTc0ZTk4YjhmZDY3ZTVlYiIsImlhdCI6MTY1MDEzNzcwNCwiZXhwIjoxNjUwMTM3NzkwfQ.-Ivqpu-l2IAWTlz5P4tUNYoaxaXk606QN4ns2w8k_B4
 
 
@@ -14,7 +15,7 @@ Content-Type: application/json
 
 {
     "date": "2022-04-18",
-    "customerId": "625d56c47c8cfef1b60a4ab4",
+    "customerId": "625af7352cc54830c437c355",
     "products": [
         {
             "productId":"625afab7574e98b8fd67e5f2",
@@ -23,7 +24,7 @@ Content-Type: application/json
             "total": 2000
         },
         {
-            "productId":"625afab7574e98b8fd67e5f5",
+            "productId":"625afab7574e98b8fd67e5f4",
             "quantity": 1.05,
             "price": 950,
             "total": 960.50
@@ -32,7 +33,7 @@ Content-Type: application/json
     "total":2950.50,
     "payment":2950.50,
     "rounded":0,
-    "isCountable":true,
+    "isCountable":false,
     "cashId":"625b0f1ca69f23d331321668"
 }
 

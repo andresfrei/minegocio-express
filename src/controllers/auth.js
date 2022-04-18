@@ -3,9 +3,9 @@ const { matchedData } = require("express-validator");
 const { keyGenerator } = require("../utils/handleText");
 const { accountToken } = require("../utils/handleToken");
 const Account = require("../models/account");
-const { createFinalConsumer } = require("../utils/handleClients");
+const { createFinalConsumer } = require("../utils/handleCustomer");
 
-async function register(req, res, next) {
+async function register(req, res) {
   try {
     const body = matchedData(req);
     const account = new Account(body);
@@ -15,8 +15,7 @@ async function register(req, res, next) {
     const defaultClientId = await createFinalConsumer(accountId);
     account.defaultClientId = defaultClientId;
     await account.save();
-    res.status(201);
-    return res.json({ created: true });
+    return res.send({ data: account }).status(201);
   } catch (e) {
     handleHttpError(res, e);
   }

@@ -3,7 +3,7 @@ const { validateResult } = require("../utils/handleValidator");
 
 const validateFields = [
   body("date").exists().notEmpty(),
-  body("clientId").exists().notEmpty().isLength({ min: 24, max: 24 }),
+  body("customerId").exists().notEmpty().isLength({ min: 24, max: 24 }),
   body("total").exists().notEmpty().isNumeric(),
   body("isAccount").exists().notEmpty().isBoolean(),
   body("cashboxId").exists().notEmpty().isLength({ min: 24, max: 24 }),

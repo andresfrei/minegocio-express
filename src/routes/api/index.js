@@ -4,19 +4,19 @@ const router = epxress.Router();
 const { verifyToken, verifyDeposit } = require("../../middleware/user");
 
 //Auth
-router.use("/auth", require("./auth"));
+router.use("/login", require("./login"));
 
 //API
-router.use("/user", verifyToken, require("./user"));
-router.use("/product", verifyToken, verifyDeposit, require("./product"));
 
-router.use("/buy", verifyToken, verifyDeposit, require("./buy"));
+router.use("/user", verifyToken, require("./user"));
+router.use("/products", verifyToken, verifyDeposit, require("./products"));
+
+router.use("/buys", verifyToken, verifyDeposit, require("./buys"));
 router.use("/stock", verifyToken, verifyDeposit, require("./stock"));
 router.use("/cash", verifyToken, require("./cash"));
 
-router.use("/client", verifyToken, require("./client"));
-router.use("/resume", verifyToken, verifyDeposit, require("./resume"));
-router.use("/type", verifyToken, require("./type"));
+router.use("/customers", verifyToken, require("./customers"));
+router.use("/types", verifyToken, require("./types"));
 
 router.get("*", (req, res) => {
   res.status(404);

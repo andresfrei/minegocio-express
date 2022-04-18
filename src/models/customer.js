@@ -8,6 +8,7 @@ const newSchema = new Schema(
     buy: { type: Boolean, default: false },
     sale: { type: Boolean, default: true },
     isCountable: { type: Boolean, default: false },
+    balance: { type: Number, default: 0 },
     active: { type: Boolean, default: true },
     accountId: { type: Types.ObjectId, required: true },
   },
@@ -17,4 +18,4 @@ const newSchema = new Schema(
   }
 );
 
-module.exports = model("Client", newSchema);
+module.exports = model("customer", newSchema);

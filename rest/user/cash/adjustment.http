@@ -1,4 +1,4 @@
-@url = http://localhost:3000/api/cash/transfer
+@url = http://localhost:3000/api/cash/adjustment
 
 #Frei
 @token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWFmYjE1NTc0ZTk4YjhmZDY3ZTYxZiIsImRlcG9zaXRJZCI6IjYyNWFmYTc5NTc0ZTk4YjhmZDY3ZTVlYiIsImlhdCI6MTY1MDE0MzY1OSwiZXhwIjoxNjUwMTQzNzQ1fQ.7QCuY_7oiTQ14tC6CEgrOou0TE_xuefZzokdNxIlDGU
@@ -12,8 +12,7 @@ Content-Type: application/json
 
 {
  "date":"2022-04-16",
- "cashOut":"625b0f15a69f23d331321664",
- "cashIn":"625b0f1ca69f23d331321668",
- "description":"transferencia",
- "import":50000
+ "cashId":"625b0f15a69f23d331321664",
+ "description":"Inicio de caja",
+ "import":100000
 }

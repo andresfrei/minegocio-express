@@ -1,10 +1,8 @@
-@url = http://localhost:3000/admin/user
+@url = http://localhost:3000/admin/users
 
-#@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlZWVjM2EzNjIzYjUxOTkwZmE5NCIsImtleSI6IksyMUo1UzU5IiwiaWF0IjoxNjQ4ODE2MDk1LCJleHAiOjE2NDg4MTYxODF9.qm-EcZ1V40-7OhWczJi2UMg1syuMHsEr5JxYVwOgum4
-# HAAS
 
-@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGFkNDNiMzhiMGIyYTI1MDEwZjM5ZCIsImtleSI6IjNVQ1JJRE4yIiwiaWF0IjoxNjQ5MDcyNDQyLCJleHAiOjE2NDkwNzI1Mjh9.7jxbarlFR6Ehr2-jSP0iBamjGdbMdOk0vlX9wy9GDFg
-#FREI
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWFmNzM1MmNjNTQ4MzBjNDM3YzM1NCIsImtleSI6IjU3WFhJRUdOIiwiaWF0IjoxNjUwMTI4NzIwLCJleHAiOjE2NTAxMjg4MDZ9.uiZt5UiDpRAwh-7RTPuntLqSS4Qt1vfIgVwjr8RpAdU
+
 
 @id = 6239f1ded2704453cd04d66f
 
@@ -25,11 +23,11 @@ auth: {{token}}
 Content-Type: application/json
 
 {
-    "username":"afrei",
-    "fullname":"Andres Frei",
+    "username":"adanfrei",
+    "fullname":"Adan Frei",
     "password":"123456",
-    "cashes":["624ad555c9b5a29797325683","624ad55ec9b5a29797325687"],
-    "deposits":["624ada20e454ce3233c077eb"],
+    "cashes":["6253602faa8f28bef38b5a91","62536039aa8f28bef38b5a95"],
+    "deposits":["6253608faa8f28bef38b5a9d"],
     "isAdmin":false,
     "active":true
 }

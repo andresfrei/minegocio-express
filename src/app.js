@@ -7,6 +7,11 @@ const multer = require("multer");
 const path = require("path");
 const app = express();
 
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
+
+const { swaggerOptions } = require("./config/swagger");
+
 require("dotenv").config();
 
 app.use(cors());
@@ -32,6 +37,9 @@ app.use(
     saveUninitialized: false,
   })
 );
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api/doc", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 //Routes
 app.use("/", require("./routes"));

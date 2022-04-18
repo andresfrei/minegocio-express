@@ -1,19 +1,25 @@
 const Cashflow = require("../models/cashFlow");
 const { Types } = require("mongoose");
+const { updateBalance } = require("./cash");
 
 const createCashflow = async (data) => {
   const cashflow = await Cashflow.create(data);
+  const cashId = data.cashId.toString();
+  const value = cashflow.import;
+  await updateBalance({ cashId, value });
   return cashflow._id.toString();
 };
 
-const cashflowBalanceById = async (id) => {
-  const cashId = Types.ObjectId(id);
-  const resul = await Cashflow.aggregate([
-    { $match: { cashId, balanceId: { $exists: false } } },
-    { $group: { _id: "$cashId", balance: { $sum: "$import" } } },
-  ]);
-  const balance = resul.length == 0 ? 0 : resul[0].balance;
-  return { cashId: id, balance };
+const getCashFlow = async (req, res) => {
+  const query = req.query;
+  const limit = req.query.limit || 10;
+  const page = req.query.page || 1;
+  const sort = req.query.page || "-_id";
+
+  query.cashId = req.params.id;
+  const select = "_id date typeId description refId import userId";
+  const data = await Cashflow.paginate(query, { select, limit, page, sort });
+  res.status(200).send({ data });
 };
 
-module.exports = { cashflowBalanceById, createCashflow };
+module.exports = { createCashflow, getCashFlow };

@@ -1,0 +1,14 @@
+@url = http://localhost:3000/api/cash
+
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWFmYjE1NTc0ZTk4YjhmZDY3ZTYxZiIsImRlcG9zaXRJZCI6IjYyNWFmYTc5NTc0ZTk4YjhmZDY3ZTVlYiIsImlhdCI6MTY1MDE0MzY1OSwiZXhwIjoxNjUwMTQzNzQ1fQ.7QCuY_7oiTQ14tC6CEgrOou0TE_xuefZzokdNxIlDGU
+
+@cashId = 625b0f1ca69f23d331321668
+
+### Get cashFlow
+GET {{url}}/{{cashId}}/flow
+auth: {{token}}
+
+
+### Get cashFlow by Date
+GET {{url}}/{{cashId}}/flow?date=2022-04-18
+auth: {{token}}

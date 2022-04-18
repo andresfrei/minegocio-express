@@ -1,0 +1,10 @@
+@url = http://localhost:3000/api/buys
+
+#FREI
+@token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWFmYjE1NTc0ZTk4YjhmZDY3ZTYxZiIsImRlcG9zaXRJZCI6IjYyNWFmYTc5NTc0ZTk4YjhmZDY3ZTVlYiIsImlhdCI6MTY1MDEzNzcwNCwiZXhwIjoxNjUwMTM3NzkwfQ.-Ivqpu-l2IAWTlz5P4tUNYoaxaXk606QN4ns2w8k_B4
+@id = flksdfslfjsdfklsdfl
+
+### List delete
+DELETE {{url}}/{{id}}
+auth: {{token}}
+

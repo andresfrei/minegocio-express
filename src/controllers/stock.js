@@ -35,7 +35,7 @@ const getStockByDeposit = async (req, res) => {
       code: product.code[0],
       description: product.description[0],
       category: product.category[0],
-      stock: product.stock,
+      stock: product.stock.toFixed(2),
     };
   });
   const data = { depositId, products };

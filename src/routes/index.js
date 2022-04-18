@@ -4,7 +4,6 @@ const router = Router();
 //Admin Routes
 router.use("/admin", require("./admin"));
 
-//API Routes
 router.use("/api", require("./api"));
 
 router.get("/", (req, res) => {
@@ -12,6 +11,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("*", (req, res) => {
+  res.status(404);
   res.render("404");
 });
 

@@ -1,6 +1,5 @@
-@url = http://localhost:3000/admin/client
-#FREI
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlZWVjM2EzNjIzYjUxOTkwZmE5NCIsImtleSI6IksyMUo1UzU5IiwiaWF0IjoxNjQ4ODE2MDk1LCJleHAiOjE2NDg4MTYxODF9.qm-EcZ1V40-7OhWczJi2UMg1syuMHsEr5JxYVwOgum4
+@url = http://localhost:3000/admin/customers
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWFmNzM1MmNjNTQ4MzBjNDM3YzM1NCIsImtleSI6IjU3WFhJRUdOIiwiaWF0IjoxNjUwMTI4NzIwLCJleHAiOjE2NTAxMjg4MDZ9.uiZt5UiDpRAwh-7RTPuntLqSS4Qt1vfIgVwjr8RpAdU
 @id = 6239da7d0558835b42814f53
 
 ### Listar todos
@@ -18,7 +17,7 @@ auth: {{token}}
 Content-Type: application/json
 
 {
-    "name":"CAJA-CHICA",
+    "name":"ANDRES FERI",
     "active":true
 }
 

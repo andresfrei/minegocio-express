@@ -1,6 +1,12 @@
 @url = http://localhost:3000/api/user
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGFkYWYwZTQ1NGNlMzIzM2MwNzdmYSIsImRlcG9zaXRJZCI6IjYyNGFkYTIwZTQ1NGNlMzIzM2MwNzdlYiIsImlhdCI6MTY0OTM1NjQwNywiZXhwIjoxNjQ5MzU2NDkzfQ.344x6lzV_zFIrHeljvDQsqehzcSfb535wzpzj0lFrmI
-@depositId = 6246064423906053be4fb640
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWFmYjE1NTc0ZTk4YjhmZDY3ZTYxZiIsImRlcG9zaXRJZCI6IjYyNWFmYTc5NTc0ZTk4YjhmZDY3ZTVlYiIsImlhdCI6MTY1MDEzNzcwNCwiZXhwIjoxNjUwMTM3NzkwfQ.-Ivqpu-l2IAWTlz5P4tUNYoaxaXk606QN4ns2w8k_B4
+@depositId = 625afa79574e98b8fd67e5eb
+
+
+### Get Home
+GET {{url}}/home
+auth: {{token}}
+
 
 ### Get user deposits
 GET {{url}}/deposits
@@ -11,5 +17,5 @@ GET {{url}}/cashes
 auth: {{token}}
 
 ### Set depositId
-POST {{url}}/set/deposit/{{depositId}}
+PUT {{url}}/set/deposit/{{depositId}}
 auth: {{token}}

@@ -1,9 +1,7 @@
-@url = http://localhost:3000/api/user/deposit
+@url = http://localhost:3000/api/user/deposits
 
-#@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlNjVjZDI4ZTU5Mjk2ZWI4MjNjOSIsImlhdCI6MTY0OTA3MzAyMCwiZXhwIjoxNjQ5MDczMTA2fQ.ImLEJu5EHr3fJUcHyqPt5kSXm9nji2N5ufPRnl1G4Rg
-#haas
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGFkYWYwZTQ1NGNlMzIzM2MwNzdmYSIsImlhdCI6MTY0OTA3Mjk1MCwiZXhwIjoxNjQ5MDczMDM2fQ.EJOTuPd9oAxcsSQTZ_lR1bwQgD4DJGc9GszTF_JHGqY
-#frei
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWFmYjE1NTc0ZTk4YjhmZDY3ZTYxZiIsImlhdCI6MTY1MDEzNDM4MSwiZXhwIjoxNjUwMTM0NDY3fQ.UKSqQp23iqiixjWAT4hn0VPEF3eU7bx9eWEecgYkSBw
 
 @id = 624ada20e454ce3233c077eb
 

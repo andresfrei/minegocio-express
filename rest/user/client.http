@@ -1,4 +1,4 @@
-@url = http://localhost:3000/api/client
+@url = http://localhost:3000/api/clients
 
 #Haas
 #@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlNjNhZDI4ZTU5Mjk2ZWI4MjNjNSIsImlhdCI6MTY0ODgzODg5MSwiZXhwIjoxNjQ4ODM4OTc3fQ.CDjRBEgTaVwo6VpmxnS6oFFdU11BoJVF9AIIUXOOenU

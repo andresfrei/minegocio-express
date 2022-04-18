@@ -14,4 +14,4 @@ const newSchema = new Schema(
   }
 );
 
-module.exports = model("cash", newSchema);
+module.exports = model("cashes", newSchema);

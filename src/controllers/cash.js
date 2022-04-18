@@ -2,7 +2,6 @@ const Cash = require("../models/cash");
 const { Types } = require("mongoose");
 const { handleHttpError } = require("../utils/handleError");
 const { matchedData } = require("express-validator");
-const { cashflowBalanceById } = require("./cashflow");
 
 const createItem = async (req, res) => {
   try {
@@ -30,7 +29,9 @@ const getItem = async (req, res) => {
       _id: req.params.id,
       accountId: req.session.accountId,
     };
-    const cash = await Cash.findOne(query);
+    const cash = await Cash.findOne(query).select(
+      "_id name block active, balance"
+    );
     if (!cash) {
       res.status(404).send({ error: "Cash not found !!!" });
     } else res.status(200).send({ data: cash });
@@ -85,11 +86,10 @@ const deleteItem = async (req, res) => {
   }
 };
 
-const cashBalanceById = async (req, res) => {
-  matchedData(req);
-  const { id } = req.params;
-  const data = await cashflowBalanceById(id);
-  res.send(data).status(200);
+const updateBalance = async ({ cashId, value }) => {
+  const cash = await Cash.findById(cashId);
+  cash.balance += value;
+  await cash.save();
 };
 
 module.exports = {
@@ -98,5 +98,5 @@ module.exports = {
   createItem,
   updateItem,
   deleteItem,
-  cashBalanceById,
+  updateBalance,
 };

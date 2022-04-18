@@ -1,5 +1,5 @@
-@url = http://localhost:3000/admin/product
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGFkNDNiMzhiMGIyYTI1MDEwZjM5ZCIsImtleSI6IjNVQ1JJRE4yIiwiaWF0IjoxNjQ5MzU3MDkxLCJleHAiOjE2NDkzNTcxNzd9.GkFBhBehqwA-y8LlX2yUfkDm5dCvH32CinBsw-IML6o
+@url = http://localhost:3000/admin/products
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWFmNzM1MmNjNTQ4MzBjNDM3YzM1NCIsImtleSI6IjU3WFhJRUdOIiwiaWF0IjoxNjUwMTI4NzIwLCJleHAiOjE2NTAxMjg4MDZ9.uiZt5UiDpRAwh-7RTPuntLqSS4Qt1vfIgVwjr8RpAdU
 @id = 6239149253aad9176e0e291e
 
 ### Listado de Productos

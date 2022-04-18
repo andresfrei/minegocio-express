@@ -1,7 +1,7 @@
-@url = http://localhost:3000/admin/auth
+@url = http://localhost:3000/admin/auth/login
 
 ### Login
-POST {{url}}/login
+POST {{url}}
 Content-Type: application/json
 
 {

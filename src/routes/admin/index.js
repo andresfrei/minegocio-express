@@ -8,9 +8,10 @@ const { verifyToken } = require("../../middleware/auth");
 router.use("/auth", require("./auth"));
 
 //Admin Routes
-router.use("/user", verifyToken, require("./user"));
-router.use("/deposit", verifyToken, require("./deposit"));
-router.use("/product", verifyToken, require("./product"));
-router.use("/cash", verifyToken, require("./cash"));
+router.use("/users", verifyToken, require("./users"));
+router.use("/customers", verifyToken, require("./customers"));
+router.use("/deposits", verifyToken, require("./deposits"));
+router.use("/products", verifyToken, require("./products"));
+router.use("/cashes", verifyToken, require("./cashes"));
 
 module.exports = router;

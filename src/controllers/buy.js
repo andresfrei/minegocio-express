@@ -23,7 +23,7 @@ const createItem = async (req, res) => {
     const payment = {
       date: buy.date,
       typeId,
-      clientId: buy.clientId,
+      customerId: buy.customerId,
       cashId: buy.cashId,
       refId: buy._id.toString(),
       import: buy.payment * paymentSing,
@@ -54,10 +54,16 @@ const createItem = async (req, res) => {
   }
 };
 
-const getItems = async (req, res) => {
-  const { accountId } = req.session;
-  const data = await Buy.find({ accountId });
+const getItemsByDeposit = async (req, res) => {
+  const query = req.query;
+  const limit = req.query.limit || 10;
+  const page = req.query.page || 1;
+  const sort = req.query.page || "-_id";
+  query.depositId = req.session.user.depositId;
+  const select =
+    "_id date customerId products total import isCountable cashId payment rounded userId depositId";
+  const data = await Buy.paginate(query, { select, limit, page, sort });
   res.status(200).send({ data });
 };
 
-module.exports = { createItem, getItems };
+module.exports = { createItem, getItemsByDeposit };

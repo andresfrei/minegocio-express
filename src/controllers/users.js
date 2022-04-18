@@ -1,5 +1,4 @@
 const User = require("../models/user");
-const Deposit = require("../models/deposit");
 const { Types } = require("mongoose");
 const { handleHttpError } = require("../utils/handleError");
 const { matchedData } = require("express-validator");
@@ -91,7 +90,7 @@ async function getDeposits(req, res) {
   try {
     const { deposits } = req.session.user;
     const data = deposits.filter((item) => item.active);
-    return res.status(200).send({ data });
+    res.send({ data }).status(200);
   } catch (e) {
     handleHttpError(res, e);
   }
@@ -99,7 +98,6 @@ async function getDeposits(req, res) {
 
 async function getCashes(req, res) {
   try {
-    console.log(req.session.user);
     const { cashes } = req.session.user;
     const data = cashes.filter((item) => item.active);
     return res.status(200).send({ data });
@@ -148,6 +146,10 @@ async function setDeposit(req, res) {
   }
 }
 
+function home(req, res) {
+  res.send({ user: req.session.user }).status(200);
+}
+
 module.exports = {
   getItems,
   getItem,
@@ -158,4 +160,5 @@ module.exports = {
   setDeposit,
   getDeposits,
   getCashes,
+  home,
 };

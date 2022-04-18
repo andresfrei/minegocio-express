@@ -1,31 +1,26 @@
 @url = http://localhost:3000/api
-@haas = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNDZlNjVjZDI4ZTU5Mjk2ZWI4MjNjOSIsImlhdCI6MTY0OTA3MzAyMCwiZXhwIjoxNjQ5MDczMTA2fQ.ImLEJu5EHr3fJUcHyqPt5kSXm9nji2N5ufPRnl1G4Rg
-@frei = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGFkYWYwZTQ1NGNlMzIzM2MwNzdmYSIsImlhdCI6MTY0OTA3Mjk1MCwiZXhwIjoxNjQ5MDczMDM2fQ.EJOTuPd9oAxcsSQTZ_lR1bwQgD4DJGc9GszTF_JHGqY
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTM2MDlkYWE4ZjI4YmVmMzhiNWFhMSIsImRlcG9zaXRJZCI6IjYyNTM2MDhmYWE4ZjI4YmVmMzhiNWE5ZCIsImlhdCI6MTY1MDEyODEzOSwiZXhwIjoxNjUwMTI4MjI1fQ.Nl5vTOb9evOK-S5WQp9VMtmXlT8qR5Xd7iEu7u_ponQ
 @id = sdfskldfjsdf
 
-### Login haas
-POST {{url}}/auth/login
-Content-Type: application/json
-
-{
-    "username":"jhaas",
-    "password":"123456",
-    "key":"WNQKBUPX"
-}
 
 ### Login frei
-POST {{url}}/auth/login
+POST {{url}}/login
 Content-Type: application/json
 
 {
-    "username":"afrei",
+    "username":"adanfrei",
     "password":"123456",
-    "key":"3UCRIDN2"
+    "key":"Q5WPH45J"
 }
-
-
 
 
 ### Set Deposit to User
 POST {{url}}/user/selected/deposit/{{id}}
-auth: {{haas}}
+auth: {{token}}
+
+
+### Set Deposit to User
+GET {{url}}/user/home
+auth: {{token}}
+
+
