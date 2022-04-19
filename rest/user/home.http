@@ -1,0 +1,14 @@
+@url = http://localhost:3000/api/user/home
+@adanfrei = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWFmYjE1NTc0ZTk4YjhmZDY3ZTYxZiIsImRlcG9zaXRJZCI6IjYyNWFmYTc5NTc0ZTk4YjhmZDY3ZTVlYiIsImlhdCI6MTY1MDMxMTY1OCwiZXhwIjoxNjUwMzExNzQ0fQ.9KYm-HWu1_KhtV7QcrLUSMZBJHVeS5r2F-ijxjVKS6M
+
+@afrei = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWRiYWVjYTlhODkzNGM2ODVhYmU4OSIsImlhdCI6MTY1MDMxMDM2NywiZXhwIjoxNjUwMzEwNDUzfQ.hC_9UlhX8x-BbFghuzwuAL4pF8175Ke0rPmK_nCUHDs
+
+### Home 
+GET {{url}}
+auth: {{adanfrei}}
+
+### Home 
+GET {{url}}
+auth: {{afrei}}
+
+

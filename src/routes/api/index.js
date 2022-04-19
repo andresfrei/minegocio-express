@@ -12,6 +12,8 @@ router.use("/user", verifyToken, require("./user"));
 router.use("/products", verifyToken, verifyDeposit, require("./products"));
 
 router.use("/buys", verifyToken, verifyDeposit, require("./buys"));
+router.use("/sales", verifyToken, verifyDeposit, require("./sales"));
+
 router.use("/stock", verifyToken, verifyDeposit, require("./stock"));
 router.use("/cash", verifyToken, require("./cash"));
 

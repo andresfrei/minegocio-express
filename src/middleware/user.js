@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
+const Customer = require("../models/customer");
 const { validCash } = require("../utils/handleUserMiddleware");
 
 const secret = process.env.JWT_SECRET;
@@ -71,17 +72,36 @@ async function validCashTransfer(req, res, next) {
 async function verifyCashParam(req, res, next) {
   const { cashes } = req.session.user;
   const { id } = req.params;
-  const cash = cashes.find((i) => i._id.toString() === id);
-  const active = !cash ? false : cash.active;
-  if (!active) {
-    return res.status(403).json({ msg: "Invalid cash used" });
-  }
-  next();
+  const resul = validCash(cashes, id);
+  resul.status == 403 ? res.status(403).send(resul.msg) : next();
 }
 
 async function isAdmin(req, res, next) {
   if (!req.session.user.isAdmin) {
     return res.status(403).json({ msg: "Requires administrator permissions" });
+  }
+  next();
+}
+
+async function userSessionOrAdmin(req, userId) {
+  const { user } = req.session;
+  return user._id.toString() === userId || user.isAdmin ? true : false;
+}
+
+async function verifyCustomerBuy(req, res, next) {
+  const { customerId } = req.body;
+  const { accountId } = req.session;
+  const customer = await Customer.findOne({
+    _id: customerId,
+    accountId,
+    buy: true,
+  });
+  if (!customer) {
+    return res.status(404).json({ msg: "Customer no valid" });
+  }
+  const { isCountable } = req.body;
+  if (isCountable && !customer.isCountable) {
+    return res.status(401).json({ msg: "Countable no valid" });
   }
   next();
 }
@@ -93,4 +113,6 @@ module.exports = {
   verifyCash,
   verifyCashParam,
   validCashTransfer,
+  userSessionOrAdmin,
+  verifyCustomerBuy,
 };

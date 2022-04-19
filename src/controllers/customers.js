@@ -83,9 +83,9 @@ const deleteItem = async (req, res) => {
   }
 };
 
-const updateBalance = async ({ _id, value }) => {
-  console.log("VALUE", value);
-  const model = await Customer.findById(_id);
+const updateBalance = async ({ customerId, value }) => {
+  const id = customerId;
+  const model = await Customer.findById(id);
   model.balance += value;
   await model.save();
 };

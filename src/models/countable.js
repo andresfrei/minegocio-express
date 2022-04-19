@@ -3,7 +3,7 @@ const { Schema, model, Types } = require("mongoose");
 const newSchema = new Schema(
   {
     date: { type: Date },
-    clientId: { type: Types.ObjectId },
+    customerId: { type: Types.ObjectId },
     typeId: { type: Number, required: true },
     refId: { type: Types.ObjectId, required: true },
     import: { type: Number },

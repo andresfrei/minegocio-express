@@ -1,7 +1,6 @@
-@url = http://localhost:3000/api/type
+@url = http://localhost:3000/api/types
 
 @token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWFmYjE1NTc0ZTk4YjhmZDY3ZTYxZiIsImlhdCI6MTY1MDEzNDM4MSwiZXhwIjoxNjUwMTM0NDY3fQ.UKSqQp23iqiixjWAT4hn0VPEF3eU7bx9eWEecgYkSBw
-@id = 
 
 ### Listado de typos
 GET {{url}}

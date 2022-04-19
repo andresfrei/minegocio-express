@@ -1,16 +1,16 @@
-@url = http://localhost:3000/api/buys
+@url = http://localhost:3000/api/sales
 
 #FREI
 @token= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWFmYjE1NTc0ZTk4YjhmZDY3ZTYxZiIsImRlcG9zaXRJZCI6IjYyNWFmYTc5NTc0ZTk4YjhmZDY3ZTVlYiIsImlhdCI6MTY1MDEzNzcwNCwiZXhwIjoxNjUwMTM3NzkwfQ.-Ivqpu-l2IAWTlz5P4tUNYoaxaXk606QN4ns2w8k_B4
 
-### List buys
+### List sales
 GET {{url}}
 auth: {{token}}
 
-### List buys
+### List sales
 GET {{url}}?isCountable=true
 auth: {{token}}
 
-### List buys by customerId
+### List sales by customerId
 GET {{url}}?customerId=625d56c47c8cfef1b60a4ab4
 auth: {{token}}

@@ -11,7 +11,7 @@ auth: {{token}}
 Content-Type: application/json
 
 {
- "date":"2022-04-16",
+ "date":"2022-04-19",
  "cashId":"625b0f15a69f23d331321664",
  "description":"Inicio de caja",
  "import":100000

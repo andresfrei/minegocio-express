@@ -17,7 +17,7 @@ auth: {{token}}
 Content-Type: application/json
 
 {
-    "name":"ANDRES FERI",
+    "name":"CLIENTE 3",
     "active":true
 }
 

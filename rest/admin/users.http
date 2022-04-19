@@ -23,8 +23,8 @@ auth: {{token}}
 Content-Type: application/json
 
 {
-    "username":"adanfrei",
-    "fullname":"Adan Frei",
+    "username":"afrei",
+    "fullname":"Andres Frei",
     "password":"123456",
     "cashes":["6253602faa8f28bef38b5a91","62536039aa8f28bef38b5a95"],
     "deposits":["6253608faa8f28bef38b5a9d"],

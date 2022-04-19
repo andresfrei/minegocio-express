@@ -1,20 +1,20 @@
 const express = require("express");
 const router = express.Router();
-const { validateFields, validateId } = require("../../validators/buy");
+const { validateFields, validateId } = require("../../validators/sale");
 const { verifyCustomerBuy } = require("../../middleware/user");
 const {
   createItem,
   getItemsByDeposit,
   deleteItem,
-} = require("../../controllers/buy");
+} = require("../../controllers/sale");
 
 router.get("/", getItemsByDeposit);
 /**
  * @swagger
- * /api/buy?query:
+ * /api/sale?query:
  *  get:
- *    summary: Listado de compras
- *    tags: [Buy]
+ *    summary: Listado de ventas
+ *    tags: [Sale]
  *    responses:
  *      201:
  *        description: Devuelve el ID de registro
@@ -27,10 +27,10 @@ router.get("/", getItemsByDeposit);
 router.post("/", verifyCustomerBuy, createItem);
 /**
  * @swagger
- * /api/buy:
+ * /api/sale:
  *  post:
- *    summary: Guarda una compra
- *    tags: [Buy]
+ *    summary: Guarda una venta
+ *    tags: [Sale]
  *    responses:
  *      200:
  *        description: Devuelve Ok
@@ -43,10 +43,10 @@ router.post("/", verifyCustomerBuy, createItem);
 router.delete("/:id", validateId, deleteItem);
 /**
  * @swagger
- * /api/buy/{id}:
+ * /api/sale/{id}:
  *  delete:
- *    summary: Elimina una compra
- *    tags: [Buy]
+ *    summary: Elimina una venta
+ *    tags: [Sale]
  *    responses:
  *      201:
  *        description: Devuelve el ID de registro

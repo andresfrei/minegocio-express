@@ -4,6 +4,7 @@ const mongoosePaginate = require("mongoose-paginate-v2");
 const newSchema = new Schema(
   {
     date: { type: Date, required: true },
+    typeId: { type: Number, required: true, enum: [1, 2] },
     customerId: { type: Types.ObjectId, required: true },
     products: [
       {
@@ -33,4 +34,4 @@ const newSchema = new Schema(
 
 newSchema.plugin(mongoosePaginate);
 
-module.exports = model("buy", newSchema);
+module.exports = model("document", newSchema);

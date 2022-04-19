@@ -1,9 +1,11 @@
 @url = http://localhost:3000/api
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTM2MDlkYWE4ZjI4YmVmMzhiNWFhMSIsImRlcG9zaXRJZCI6IjYyNTM2MDhmYWE4ZjI4YmVmMzhiNWE5ZCIsImlhdCI6MTY1MDEyODEzOSwiZXhwIjoxNjUwMTI4MjI1fQ.Nl5vTOb9evOK-S5WQp9VMtmXlT8qR5Xd7iEu7u_ponQ
-@id = sdfskldfjsdf
+@adanfrei = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWFmYjE1NTc0ZTk4YjhmZDY3ZTYxZiIsImRlcG9zaXRJZCI6IjYyNWFmYTc5NTc0ZTk4YjhmZDY3ZTVlYiIsImlhdCI6MTY1MDMxMTY1OCwiZXhwIjoxNjUwMzExNzQ0fQ.9KYm-HWu1_KhtV7QcrLUSMZBJHVeS5r2F-ijxjVKS6M
+@afrei = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNWRiYWVjYTlhODkzNGM2ODVhYmU4OSIsImlhdCI6MTY1MDMxMDM2NywiZXhwIjoxNjUwMzEwNDUzfQ.hC_9UlhX8x-BbFghuzwuAL4pF8175Ke0rPmK_nCUHDs
+
+@id = 625afa79574e98b8fd67e5eb
 
 
-### Login frei
+### Login 1
 POST {{url}}/login
 Content-Type: application/json
 
@@ -13,14 +15,18 @@ Content-Type: application/json
     "key":"Q5WPH45J"
 }
 
+### Login 2
+POST {{url}}/login
+Content-Type: application/json
+
+{
+    "username":"afrei",
+    "password":"123456",
+    "key":"Q5WPH45J"
+}
+
 
 ### Set Deposit to User
-POST {{url}}/user/selected/deposit/{{id}}
-auth: {{token}}
-
-
-### Set Deposit to User
-GET {{url}}/user/home
-auth: {{token}}
-
+PUT {{url}}/user/set/deposit/{{id}}
+auth: {{afrei}}
 

@@ -22,4 +22,13 @@ const getCashFlow = async (req, res) => {
   res.status(200).send({ data });
 };
 
-module.exports = { createCashflow, getCashFlow };
+const deleteCashFlowByRef = async ({ cashId, typeId, refId }) => {
+  const data = await Cashflow.findOne({ cashId, typeId, refId });
+  const value = data.import * -1; //Invierto valor para anular
+  await updateBalance({ cashId, value });
+  await data.remove();
+  //await Cashflow.deleteOne({ cashId, typeId, refId });
+  return true;
+};
+
+module.exports = { createCashflow, getCashFlow, deleteCashFlowByRef };

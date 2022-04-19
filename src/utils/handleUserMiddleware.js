@@ -1,7 +1,7 @@
 const { validationResult, check } = require("express-validator"); //TODO:
 
-const validCash = (cashes, cashId) => {
-  const cash = cashes.find((i) => i._id.toString() === cashId);
+const validCash = async (cashes, cashId) => {
+  const cash = await cashes.find((i) => i._id.toString() === cashId);
   const active = !cash ? false : cash.active;
   if (!active) {
     return { status: 403, msg: "Invalid cash used" };

@@ -1,3 +1,4 @@
+const cashFlow = require("../models/cashFlow");
 const Stock = require("../models/stock");
 
 const createStock = async (data) => {
@@ -42,4 +43,8 @@ const getStockByDeposit = async (req, res) => {
   res.send({ data }).status(201);
 };
 
-module.exports = { createStock, getStockByDeposit };
+const deleteStockByRef = async ({ typeId, refId }) => {
+  await Stock.deleteMany({ typeId, refId });
+};
+
+module.exports = { createStock, getStockByDeposit, deleteStockByRef };
